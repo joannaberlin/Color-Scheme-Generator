@@ -2,4 +2,76 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Raleway', sans-serif;
+	background-color: rgb(36, 36, 36);
+}
+
+#main {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 0.5em;
+}
+
+.form_wrapper {
+	background-color: rgb(250, 250, 250);
+	width: 97%;
+}
+
+form {
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#color-boxes_wrapper {
+	height: 90vh;
+	width: 97%;
+	display: flex;
+	justify-content: center;
+}
+
+.color-box {
+	flex: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.color-box p {
+	background-color: rgb(250, 250, 250);
+	padding: 10px 5px;
+	margin: 0;
+	flex: 1;
+	font-size: 12px;
+	font-weight: 600;
+	text-align: center;
+}
+
+input[type='color'] {
+	border: none;
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+}
+input[type='color']::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type='color']::-webkit-color-swatch {
+	border: none;
+}
+
+select {
+	cursor: pointer;
+	height: 30px;
+}
+
+button {
+	height: 30px;
+	background: rgb(250, 250, 250);
+	border: 1px solid rgb(192, 192, 192);
+	font-weight: 500;
+	cursor: pointer;
 }
