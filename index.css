@@ -86,4 +86,8 @@ button {
 	#main {
 		width: 70%;
 	}
+
+	button {
+		font-size: 0.8em;
+	}
 }
