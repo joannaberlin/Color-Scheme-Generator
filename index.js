@@ -1,16 +1,26 @@
 const colorsWrapper = document.getElementById('color-boxes_wrapper');
+const form = document.getElementById('form');
+const colorInput = document.getElementById('color');
+const modeOption = document.getElementById('mode');
 let colorsArr = [];
 
-fetch('https://www.thecolorapi.com/scheme?hex=0047AB&mode=analogic')
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data.colors);
-		for (let color of data.colors) {
-			colorsArr.push(color.hex.value);
-		}
-		for (let color of colorsArr) {
-			colorsWrapper.innerHTML += `<div class="color-box" style="background-color:${color}"><p>${color}</p></div>`;
-		}
-	});
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const colorValue = colorInput.value.slice(1);
+	const modeValue = modeOption.value;
 
-console.log(colorsArr);
+	fetch(
+		`https://www.thecolorapi.com/scheme?hex=${colorValue}&mode=${modeValue}`
+	)
+		.then((response) => response.json())
+		.then((data) => {
+			for (let color of data.colors) {
+				colorsArr.push(color.hex.value);
+			}
+			for (let color of colorsArr) {
+				colorsWrapper.innerHTML += `<div class="color-box" style="background-color:${color}"><p>${color}</p></div>`;
+			}
+		});
+	colorsArr = [];
+	colorsWrapper.innerHTML = '';
+});
