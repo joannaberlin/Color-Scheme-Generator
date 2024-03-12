@@ -1,10 +1,10 @@
+let colorsArr = [];
 const colorsWrapper = document.getElementById('color-boxes_wrapper');
 const form = document.getElementById('form');
 const colorInput = document.getElementById('color');
 const modeOption = document.getElementById('mode');
-let colorsArr = [];
 
-form.addEventListener('submit', (e) => {
+const handleSubmit = (e) => {
 	e.preventDefault();
 	const colorValue = colorInput.value.slice(1);
 	const modeValue = modeOption.value;
@@ -23,4 +23,6 @@ form.addEventListener('submit', (e) => {
 		});
 	colorsArr = [];
 	colorsWrapper.innerHTML = '';
-});
+};
+
+form.addEventListener('submit', handleSubmit);
